@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int n;
+	while(cin>>n){
+		priority_queue<int> que;
+		vector<vector<int>> arr(n,vector<int>(2));
+		for(int i=0;i<n;i++){
+			scanf("%d %d",&arr[i][0],&arr[i][1]);
+		}
+		sort(arr.begin(),arr.end(),[](vector<int>&a,vector<int>&b){
+			return a[1]<b[1];	
+		});
+		int now=n-1;
+		int ans=0;
+		for(int i=10000;i>0;i--){
+			for(;now>=0&&arr[now][1]==i;now--){
+				que.push(arr[now][0]); 
+			}
+			if(!que.empty()){
+				ans+=que.top();
+				que.pop();
+			}
+		}
+		cout<<ans<<endl;
+	}
+	return 0;
+}
