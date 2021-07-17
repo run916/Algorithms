@@ -7,5 +7,11 @@
         "vector": "cpp",
         "xstring": "cpp",
         "xutility": "cpp"
-    }
+    },
+    "code-runner.executorMap": {
+        "c": "gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -std=c++11 -lpthread && $dir$fileNameWithoutExt"
+    }, // 设置code runner的命令行
+    "C_Cpp.errorSquiggles": "Disabled"
+
 }
