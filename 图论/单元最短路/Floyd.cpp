@@ -61,7 +61,6 @@ int main(){
                 A.push_back(i);
             }
         }
-        
         for (int i = 0; i < A.size();i++){
             for (int j = 0; j < B.size();j++){
                 tmp = min(tmp, maxstep[A[i]] + maxstep[B[j]] + get(point[A[i]], point[B[j]]));
