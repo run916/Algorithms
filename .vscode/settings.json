@@ -1,17 +1,9 @@
 {
-    "files.associations": {
-        "deque": "cpp",
-        "initializer_list": "cpp",
-        "queue": "cpp",
-        "type_traits": "cpp",
-        "vector": "cpp",
-        "xstring": "cpp",
-        "xutility": "cpp"
-    },
-    "code-runner.executorMap": {
-        "c": "gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -std=c++11 -lpthread && $dir$fileNameWithoutExt"
-    }, // 设置code runner的命令行
-    "C_Cpp.errorSquiggles": "Disabled"
-
+    "editor.fontFamily": "'楷体', 'Arial', monospace",
+    "editor.fontSize": 16,
+    "editor.formatOnType": true,
+    "editor.glyphMargin": true,
+    "editor.lineHeight": 20,
+    "terminal.integrated.fontFamily": "monospace",
+    "code-runner.runInTerminal": true,
 }
