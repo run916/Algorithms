@@ -4,5 +4,5 @@
     "editor.formatOnType": true,
     "editor.glyphMargin": true,
     "editor.lineHeight": 20,
-    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontFamily": "楷体",
 }
