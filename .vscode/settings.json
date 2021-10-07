@@ -5,5 +5,4 @@
     "editor.glyphMargin": true,
     "editor.lineHeight": 20,
     "terminal.integrated.fontFamily": "monospace",
-    "code-runner.runInTerminal": true,
 }

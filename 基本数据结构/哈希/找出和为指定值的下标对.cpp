@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class FindSumPairs {
 public:
     //哈希统计即可
