@@ -54,6 +54,23 @@ void traverse(){
     }
 }
 
+//  判断元素是否存在
+void judge(){
+    // 判断元素是否存在主要有两种方式，常用的是用count判断，count判断是不会增加元素
+    // 哈希函数中初始化的值都是0
+    if(has.count(4)){
+        cout<<"4在哈希列表中"<<endl;
+    }else{
+        cout<<"4不在哈希列表中"<<endl;
+    }
+    if(has.find(3)!=has.end()){
+        cout<<"3在哈希列表中"<<endl;
+    }else{
+        cout<<"3不在哈希列表中"<<endl;
+    }
+    return ;
+}
+
 struct pair_hash{
     size_t operator () (const pair<int,int> &key) const{// 常量+引用，减少复制构造次数，优化代码
         // 重载哈希函数，将自定义结构体或者变量转化到一直的哈希函数上来，通常为了避免哈希冲突会转化到字符串哈希上来
@@ -65,6 +82,7 @@ unordered_map<pair<int,int>,int,pair_hash> pa;
 
 int main(){
     add();
+    judge();
     traverse();
     // 自定义哈希函数
 
