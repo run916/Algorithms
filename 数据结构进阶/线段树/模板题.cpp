@@ -1,21 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//线段树模板-求和
-//这里给出递归实现
 const int N = 400010;
-long long duan[N];//线段树
-long long lazy[N];//惰性标记，用来惰性更新区间，这样才能保证查询更新都在O(nlogn)
+long long duan[N];
+long long lazy[N];
 
-//注意线段树的根节点是1，主要是方面位运算，这样rt<<1就是左孩子，rt<<1|1就是右孩子。
 
-//更新值
 long long arr[N];
 void up(int rt){
     duan[rt] = duan[rt << 1] + duan[rt << 1 | 1];
     return;
 }
-//建立线段树
+
 void build(int l, int r, int rt){
     if(l == r){
         duan[rt] = arr[l];
@@ -28,7 +24,7 @@ void build(int l, int r, int rt){
     return;
 }
 
-//惰性更新，下沉
+
 void down(int ln, int rn, int rt){
     if(lazy[rt]){
         duan[rt << 1] += (long long) ln * lazy[rt];
@@ -39,7 +35,7 @@ void down(int ln, int rn, int rt){
     }
     return;
 }
-//点更新，如果有惰性标记则需要考虑更新惰性标记
+
 void update(int x, int v, int l, int r, int rt){
     if(l == r){
         duan[rt] += v;
@@ -54,7 +50,7 @@ void update(int x, int v, int l, int r, int rt){
     up(rt);
     return;
 }
-//区间更新，与点更新类似
+
 void update(int x, int y, int v, int l, int r, int rt){
     if(x <= l && y >= r){
         duan[rt] += (long long)(r - l + 1) * v;
@@ -70,7 +66,7 @@ void update(int x, int y, int v, int l, int r, int rt){
     up(rt);
     return;
 }
-//区间查询
+
 long long query(int x,int y,int l,int r,int rt){
     if(x <= l && r <= y){
         return duan[rt];
@@ -84,7 +80,7 @@ long long query(int x,int y,int l,int r,int rt){
         ans += query(x, y, m + 1, r, rt << 1 | 1);
     return ans;
 }
-//主函数
+
 int main(){
     memset(lazy, 0, sizeof(lazy));
     int n, m;
