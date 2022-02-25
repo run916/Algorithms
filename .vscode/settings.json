@@ -5,4 +5,15 @@
     "editor.glyphMargin": true,
     "editor.lineHeight": 20,
     "terminal.integrated.fontFamily": "楷体",
+    "files.associations": {
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp"
+    },
 }

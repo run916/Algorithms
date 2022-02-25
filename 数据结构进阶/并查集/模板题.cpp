@@ -20,6 +20,7 @@ void merge(int x, int y){
     }
     else{
         fa[x] = y;
+        // 如果秩相等，则更新秩
         if (depth[x] == depth[y]){
             depth[y]++;
         }
