@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 100010;
+const int N=100010;
 int edge[N];
 int nest[N];
-int last[N];
 int val[N];
-int cnt = 2;// 由于使用成对变换的技巧，所以邻接链表中的边要从序号2开始编号
+int last[N];
+int cnt = 2;
 
 void add(int u,int v,int w){
     edge[cnt] = v;
-    val[cnt] = w;
     nest[cnt] = last[u];
+    val[cnt] = w;
     last[u] = cnt;
     cnt++;
     return;
@@ -19,27 +19,30 @@ void add(int u,int v,int w){
 
 int s,t;
 int in[N];
-int vise[N];
 int pre[N];
+bool vise[N];
 queue<int> que;
 
+// bfs寻找增广路
 bool bfs(){
+    // 初始化
     while(!que.empty()){
         que.pop();
     }
     memset(vise, false, sizeof(vise));
     in[s] = 1 << 30;
-    vise[s] = true;
     que.push(s);
+    vise[s] = true;
+
     while(!que.empty()){
         int k = que.front();
         que.pop();
-        for (int i = last[k];i;i=nest[i]){
+        for (int i = last[k]; i;i=nest[i]){
             if(!vise[edge[i]]&&val[i]){
                 vise[edge[i]] = true;
-                que.push(edge[i]);
-                in[edge[i]] = min(in[k], val[i]);
                 pre[edge[i]] = i;
+                in[edge[i]] = min(val[i], in[k]);
+                que.push(edge[i]);
                 if(edge[i]==t){
                     return true;
                 }
@@ -49,13 +52,13 @@ bool bfs(){
     return false;
 }
 
-int_least64_t update(){
+long long update(){
     int x = t;
     while(x!=s){
-        int k = pre[x];
-        val[k] -= in[t];
-        val[k ^ 1] += in[t];
-        x = edge[k ^ 1];
+        int i = pre[x];
+        val[i] -= in[t];
+        val[i ^ 1] += in[t];
+        x = edge[i ^ 1];
     }
     return in[t];
 }
@@ -64,8 +67,9 @@ int main(){
     int n, m;
     cin >> n >> m >> s >> t;
     int u, v, w;
-    for (int i = 0; i < m;i++){
-        scanf("%d %d %d", &u, &v, &w);
+    // 构建邻接链表
+    for (int i = 0;i<m;i++){
+        cin >> u >> v >> w;
         add(u, v, w);
         add(v, u, 0);
     }
@@ -73,6 +77,6 @@ int main(){
     while(bfs()){
         ans += update();
     }
-    cout << ans << endl;
+    cout << ans;
     return 0;
 }

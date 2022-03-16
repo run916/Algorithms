@@ -10,19 +10,21 @@ int cnt = 2;
 
 void add(int u,int v,int w){
     edge[cnt] = v;
-    nest[cnt] = last[u];
     val[cnt] = w;
+    nest[cnt] = last[u];
     last[u] = cnt;
     cnt++;
     return;
 }
 
 int s,t;
-int pre[N];
-int in[N];
 int d[N];
+int gap[N];
 queue<int> que;
 
-int dinic(int k,int flow){
-    
+
+
+
+int main(){
+
 }
