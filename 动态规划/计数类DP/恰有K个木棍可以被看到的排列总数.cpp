@@ -1,3 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// 力扣原题，可以直接搜题目
+
 class Solution {
 public:
     int mod=1e9+7;
