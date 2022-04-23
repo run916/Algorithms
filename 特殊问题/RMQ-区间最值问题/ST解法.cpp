@@ -10,6 +10,7 @@ int main() {
     for(int i=0;i<n;i++){
         cin >> num[i];
     }
+    // dp数组中，第一维度表示下标，第二维度表示区间的长度对应的2的指数幂，如果长度为8，那么这一维度的值为3。
     int l = log2(n) + 1;
     int dp[n][l];
     int bp[n][l];
@@ -36,6 +37,7 @@ int main() {
     l = log2(k);
     // 查询
     for (int i = 0; i + k - 1 < n; i++){
+        // 查询时要注意实际上左边的区间是i+k-1-(1<<l)+1这样计算而来的。
         cout << max(dp[i][l], dp[i + k - (1 << l)][l]) << " ";
         cout << min(bp[i][l], bp[i + k - (1 << l)][l]) << endl;
     }
