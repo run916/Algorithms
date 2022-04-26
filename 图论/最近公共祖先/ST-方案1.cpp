@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// https://www.luogu.com.cn/problem/P3379
+
 const int N = 1000010;
 int edge[N];
 int nest[N];
@@ -60,8 +62,7 @@ int main() {
         dp[i][0] = num[i];
     }
 
-    for (int i = 1;
-        (1 << i) <= num.size(); i++) { // 注意边界条件，这里应该有等于
+    for (int i = 1;(1 << i) <= num.size(); i++) { // 注意边界条件，这里应该有等于
         for (int j = 0; j + (1 << i) - 1 < num.size(); j++) {
             if (d[dp[j][i - 1]] < d[dp[j + (1 << i - 1)][i - 1]]) {
                 dp[j][i] = dp[j][i - 1];

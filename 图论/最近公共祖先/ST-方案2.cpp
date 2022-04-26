@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//  https://www.luogu.com.cn/problem/P3379
+
 const int N=5000005;
 //兄弟链表法存储所有边 
 int edge[2*N];
