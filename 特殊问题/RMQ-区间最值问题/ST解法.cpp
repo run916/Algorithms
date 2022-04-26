@@ -27,7 +27,7 @@ int main() {
         bp[i][0] = num[i];
     }
 
-    for (int i = 1; (1<<i)<n; i++) {
+    for (int i = 1; (1<<i) <= n; i++) {
         for (int j = 0; j + (1 << i)-1 < n; j++) {// 注意这里的区间边界一定要减去1
             dp[j][i] = max(dp[j][i - 1], dp[j + (1 << (i - 1))][i - 1]);
             bp[j][i] = min(bp[j][i - 1], bp[j + (1 << (i - 1))][i - 1]);
