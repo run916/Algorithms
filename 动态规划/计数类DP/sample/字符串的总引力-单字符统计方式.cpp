@@ -1,3 +1,4 @@
+// https://leetcode-cn.com/problems/total-appeal-of-a-string/
 #include<bits/stdc++.h>
 
 using namespace std;
