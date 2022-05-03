@@ -46,14 +46,8 @@ class Solution {
         memset(vise, 0, sizeof(vise));
         vise[0] = 1;
         vise[t] = 2;
-        que.push({
-            0,
-            1
-        });
-        que.push({
-            t,
-            1
-        });
+        que.push({ 0, 1});
+        que.push({ t, 1});
         int i, k;
         while (!que.empty()) {
             i = que.front().first;
