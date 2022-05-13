@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 //树结构
 const int N = 100010;
 int edge[N];
