@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
+
 class Solution {
     public:
         int totalSteps(vector < int > & nums) {
