@@ -4,6 +4,9 @@ using namespace std;
 
 // https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
 
+// 这是一个很好的用动态数组模拟链表的例题。
+// 实际情况中我们也可以用静态数组模拟链表，利用利用数组模拟实现邻接链表的结构。
+
 class Solution {
     public:
         int totalSteps(vector < int > & nums) {
