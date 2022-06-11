@@ -1,15 +1,16 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 // 邻接链表
 const int N = 1000010;
 int edge[N];
-int nest[N];// 命名冲突
+int nest[N]; // 命名冲突
 int val[N];
 int last[N];
 int cnt = 1;
 
-void add(int u,int v,int w){
+void add(int u, int v, int w) {
     edge[cnt] = v;
     nest[cnt] = last[u];
     val[cnt] = w;
@@ -18,15 +19,15 @@ void add(int u,int v,int w){
     return;
 }
 
-int main(){
+int main() {
     int n, m, s;
     cin >> n >> m >> s;
     int u, v, w;
-    for (int i = 0; i < m; i++){
-        scanf("%d %d %d", &u, &v, &w);
+    for (int i = 0; i < m; i++) {
+        scanf("%d %d %d", & u, & v, & w);
         add(u, v, w);
     }
-    queue<int> que;
+    queue < int > que;
     que.push(s);
     long long dis[n + 1];
     memset(dis, 0x3f, sizeof(dis));
@@ -34,25 +35,26 @@ int main(){
     // 建立vise数组，用来标记当前在队列中的元素
     bool vise[n + 1];
     memset(vise, false, sizeof(vise));
-    for (; !que.empty();){
+    for (; !que.empty();) {
         int k = que.front();
         que.pop();
         vise[k] = false;
-        for (int i = last[k]; i; i = nest[i]){
-            if (dis[edge[i]] > dis[k] + val[i]){
+        for (int i = last[k]; i; i = nest[i]) {
+            // 优化1，三角不等式判断是否需要更新到节点的最短路
+            if (dis[edge[i]] > dis[k] + val[i]) {
                 dis[edge[i]] = dis[k] + val[i];
-                // 对于不在队列中的元素，则加入队列
-                if(!vise[edge[i]]){
+                // 优化2，对于不在队列中的元素，则加入队列
+                if (!vise[edge[i]]) {
                     vise[edge[i]] = true;
                     que.push(edge[i]);
                 }
             }
         }
     }
-    for (int i = 1; i <= n; i++){
-        if(dis[i]>10000000){
+    for (int i = 1; i <= n; i++) {
+        if (dis[i] > 10000000) {
             cout << INT_MAX << " ";
-        }else{
+        } else {
             cout << dis[i] << " ";
         }
     }
