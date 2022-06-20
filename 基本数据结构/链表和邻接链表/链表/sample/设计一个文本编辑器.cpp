@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.cn/problems/design-a-text-editor/
+
 // 最经典的链表模拟
 // 需要设置为双向链表
 struct node
