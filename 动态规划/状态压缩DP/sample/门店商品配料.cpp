@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// https://leetcode.cn/contest/zj-future2022/problems/NBCXIp/
+
 class Solution {
     public:
         int lowbit(int & x) {
